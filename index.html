@@ -496,6 +496,28 @@
             background: linear-gradient(to right, #16A085, #E67E22);
             border-radius: 3px;
         }
+
+	    @keyframes falling-hearts {
+    0% {
+        transform: translateY(-10vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+.heart {
+    position: fixed;
+    top: -10vh;
+    font-size: 24px;
+    color: red;
+    animation: falling-hearts 5s linear infinite;
+    pointer-events: none;
+    user-select: none;
+}
+
     </style>
 </head>
 <body>
@@ -659,7 +681,29 @@
     </footer>
     
     <!-- Script to generate floating 3D hearts -->
-    <script>/
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    setInterval(createFallingHeart, 300); // Creates hearts every 300ms
+});
+
+function createFallingHeart() {
+    const heart = document.createElement("div");
+    heart.innerHTML = "❤️"; // You can change this to other emojis
+    heart.classList.add("heart");
+    document.body.appendChild(heart);
+
+    // Randomize position, size, and animation duration
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px"; // Random size between 10px-30px
+    heart.style.animationDuration = Math.random() * 2 + 3 + "s"; // Between 3s and 5s
+
+    // Remove heart after animation ends
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+	    
         // Function to create floating 3D hearts
         function createHearts() {
             const numberOfHearts = 20;
