@@ -260,10 +260,59 @@
         font-size: 28px;
     }
 
+header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background-color: #333;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transition: top 0.3s;
+    }
+
+        nav {
+            margin-left: auto;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            font-size: 18px;
+            font-weight: 600;
+			padding: 0;
+			margin: 0;
+        }
+        nav ul li {
+		display: inline;
+		}
+		nav ul li a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #f4a261;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        
+
+	
     nav ul {
         gap: 10px;
     }
+ header {
+        top: -100px;
+    }
 
+    /* Show the nav when hovered */
+    header:hover {
+        top: 0;
+    }
     .step {
         width: 100%;
         padding: 20px;
@@ -526,7 +575,7 @@
         <div class="logo">
             <img src="PHOTO-2025-02-19-02-14-15.jpg" alt="Melody Master Co Logo">
         </div>
-        <nav>
+       <nav>
             <ul>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#request-song">Request a Song</a></li>
